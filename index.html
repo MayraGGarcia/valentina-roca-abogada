@@ -161,6 +161,27 @@
   .step p{font-size:14.5px; opacity:0.75; max-width:32ch;}
   @media (max-width:860px){ .steps{grid-template-columns:1fr; gap:36px;} }
 
+  /* ---------- CONTACT FORM ---------- */
+  .contact-form-section{background:var(--cream-2); padding:88px 0;}
+  .contact-form-section .process-head{text-align:center; margin:0 auto 44px;}
+  .contact-form-section .eyebrow{justify-content:center;}
+  .contact-form{max-width:600px; margin:0 auto;}
+  .form-row{margin-bottom:22px;}
+  .form-row label{display:block; font-size:12.5px; font-weight:600; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.05em; color:var(--navy);}
+  .form-row input, .form-row textarea{width:100%; padding:14px 16px; border:1px solid var(--line); border-radius:2px; font-family:'Inter',sans-serif; font-size:14.5px; background:var(--cream); color:var(--charcoal);}
+  .form-row input:focus, .form-row textarea:focus{outline:2px solid var(--gold); outline-offset:1px;}
+  .form-row textarea{min-height:120px; resize:vertical;}
+  .contact-form .btn{width:100%; text-align:center; font-size:15px;}
+  .contact-form.hide{display:none;}
+  .form-success{display:none; text-align:center; padding:20px 20px 0;}
+  .form-success.show{display:block;}
+  .form-success svg{width:44px; height:44px; color:var(--gold); margin:0 auto 18px;}
+  .form-success p{max-width:44ch; margin:0 auto; opacity:0.8;}
+  .footer-socials{display:flex; gap:14px; margin-top:20px;}
+  .footer-socials a{display:flex; align-items:center; justify-content:center; width:36px; height:36px; border:1px solid rgba(247,242,233,0.25); border-radius:50%; transition:border-color .15s, opacity .15s;}
+  .footer-socials a:hover{border-color:var(--gold-light);}
+  .footer-socials svg{width:16px; height:16px; color:var(--cream);}
+
   /* ---------- FOOTER / CONTACT ---------- */
   footer{background:var(--navy-deep); color:rgba(247,242,233,0.75); padding:72px 0 32px;}
   .footer-grid{display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:48px; padding-bottom:44px; border-bottom:1px solid rgba(247,242,233,0.12);}
@@ -302,6 +323,34 @@
   </div>
 </section>
 
+<section class="contact-form-section" id="escribime">
+  <div class="wrap">
+    <div class="process-head reveal">
+      <span class="eyebrow">Escribime</span>
+      <h2>Contame tu situación</h2>
+    </div>
+    <form class="contact-form reveal" id="contactForm">
+      <div class="form-row">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+      <div class="form-row">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-row">
+        <label for="mensaje">Contame brevemente tu situación</label>
+        <textarea id="mensaje" name="mensaje" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-gold">Enviar mensaje</button>
+    </form>
+    <div class="form-success" id="formSuccess">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>
+      <p>Gracias por escribirme. Te voy a responder dentro de las próximas 24 a 48 horas.</p>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="footer-grid">
@@ -314,6 +363,10 @@
           <span class="logo-text"><span class="name">Valentina Roca</span><br><span class="role" style="color:var(--gold-light);">Abogada</span></span>
         </div>
         <p>Derecho de familia y sucesiones, con acompañamiento cercano en cada etapa del proceso.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M11 17v-4.5a1.8 1.8 0 0 1 3.6 0V17M14.6 17v-4.5"/></svg></a>
+        </div>
       </div>
       <div class="footer-col">
         <h4>Contacto</h4>
@@ -343,6 +396,13 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
   }, {threshold:0.15});
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const contactForm = document.getElementById('contactForm');
+  contactForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    contactForm.classList.add('hide');
+    document.getElementById('formSuccess').classList.add('show');
+  });
 </script>
 
 </body>
