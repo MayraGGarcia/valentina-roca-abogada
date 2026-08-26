@@ -4,6 +4,9 @@ Landing page de portfolio para un estudio jurídico boutique ficticio, especiali
 
 🔗 **Ver demo en vivo:** https://mayraggarcia.github.io/valentina-roca-abogada/
 
+## 🛒 Esta plantilla está a la venta
+Disponible como producto digital listo para personalizar: [[link de Payhip]](https://payhip.com/b/x4lK5)
+
 ## Sobre el proyecto
 Pensada para transmitir seriedad profesional sin perder cercanía. La identidad usa un isotipo de dos anillos entrelazados en vez de la iconografía típica de balanza o martillo.
 
